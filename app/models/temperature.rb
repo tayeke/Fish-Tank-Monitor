@@ -16,6 +16,7 @@ class Temperature < ApplicationRecord
             resolution = resolution.to_i
             resolution = 2 if resolution < 2
             temps_in_day.in_groups(resolution) do |temps_over_range|
+                temps_over_range.compact!
                 sum = 0
                 total_over_range = temps_over_range.count
                 temps_over_range.each_with_index do |temp, i|

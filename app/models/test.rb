@@ -16,6 +16,7 @@ class Test < ApplicationRecord
             resolution = resolution.to_i
             resolution = 2 if resolution < 2
             tests_in_day.in_groups(resolution) do |tests_over_range|
+                tests_over_range.compact!
                 sum = 0
                 total_over_range = tests_over_range.count
                 tests_over_range.each_with_index do |test, i|
