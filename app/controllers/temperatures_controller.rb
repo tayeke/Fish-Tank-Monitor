@@ -24,6 +24,8 @@ class TemperaturesController < ApplicationController
   # POST /temperatures
   # POST /temperatures.json
   def create
+    Temperature.reduce_temperatures
+
     @temperature = Temperature.new(temperature_params)
 
     respond_to do |format|

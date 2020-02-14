@@ -24,6 +24,8 @@ class TestsController < ApplicationController
   # POST /tests
   # POST /tests.json
   def create
+    Test.reduce_tests
+
     @test = Test.new(test_params)
 
     respond_to do |format|
