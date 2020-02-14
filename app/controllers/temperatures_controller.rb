@@ -1,6 +1,7 @@
 class TemperaturesController < ApplicationController
   before_action :set_temperature, only: [:show, :edit, :update, :destroy]
 
+
   # GET /temperatures
   # GET /temperatures.json
   def index
@@ -10,6 +11,16 @@ class TemperaturesController < ApplicationController
   # GET /temperatures/1
   # GET /temperatures/1.json
   def show
+  end
+
+  # GET /temperatures/current
+  # GET /temperatures/current.json
+  def current
+    @temperature = Temperature.order(created_at: :desc).first
+    respond_to do |format|
+      format.html { redirect_to @temperature }
+      format.json { render :show, status: :ok, location: @temperature }
+    end
   end
 
   # GET /temperatures/new

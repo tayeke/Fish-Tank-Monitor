@@ -12,6 +12,16 @@ class TestsController < ApplicationController
   def show
   end
 
+  # GET /temperatures/current
+  # GET /temperatures/current.json
+  def current
+    @test = Test.order(created_at: :desc).first
+    respond_to do |format|
+      format.html { redirect_to @test }
+      format.json { render :show, status: :ok, location: @test }
+    end
+  end
+
   # GET /tests/new
   def new
     @test = Test.new
