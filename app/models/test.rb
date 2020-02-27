@@ -12,7 +12,11 @@ class Test < ApplicationRecord
         all_tests.each do |key, tests_in_day|
             next if tests_in_day.count <= 2
             days_ago += 1
-            resolution = tests_in_day.count / days_ago
+            offset = 0.5
+            if days_ago > 4
+                offset = 0.25
+            end
+            resolution = tests_in_day.count / (days_ago * offset)
             resolution = resolution.to_i
             resolution = 2 if resolution < 2
             tests_in_day.in_groups(resolution) do |tests_over_range|

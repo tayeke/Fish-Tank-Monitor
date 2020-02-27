@@ -12,7 +12,11 @@ class Temperature < ApplicationRecord
         all_temps.each do |key, temps_in_day|
             next if temps_in_day.count <= 2
             days_ago += 1
-            resolution = temps_in_day.count / days_ago
+            offset = 0.5
+            if days_ago > 4
+                offset = 0.25
+            end
+            resolution = temps_in_day.count / (days_ago * offset)
             resolution = resolution.to_i
             resolution = 2 if resolution < 2
             temps_in_day.in_groups(resolution) do |temps_over_range|

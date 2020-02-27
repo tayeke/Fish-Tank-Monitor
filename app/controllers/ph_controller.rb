@@ -34,6 +34,8 @@ class PhController < ApplicationController
   # POST /ph
   # POST /ph.json
   def create
+    Ph.reduce_ph
+
     @ph = Ph.new(ph_params)
 
     respond_to do |format|
