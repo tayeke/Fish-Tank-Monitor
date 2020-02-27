@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_12_190939) do
+ActiveRecord::Schema.define(version: 2020_02_27_011900) do
+
+  create_table "ph", force: :cascade do |t|
+    t.float "measure"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "phs", force: :cascade do |t|
+    t.float "measure"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "temperatures", force: :cascade do |t|
     t.float "measure"

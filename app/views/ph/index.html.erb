@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ph</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Measure</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ph.each do |ph| %>
+      <tr>
+        <td><%= ph.measure %></td>
+        <td><%= link_to 'Show', ph %></td>
+        <td><%= link_to 'Edit', edit_ph_path(ph) %></td>
+        <td><%= link_to 'Destroy', ph, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ph', new_ph_path %>

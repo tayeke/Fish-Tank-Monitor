@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :ph do
+    get :current, on: :collection
+  end
   resources :temperatures do
     get :current, on: :collection
   end
