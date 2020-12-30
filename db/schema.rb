@@ -12,13 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2020_02_27_011900) do
 
-  create_table "ph", force: :cascade do |t|
-    t.float "measure"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
-  create_table "phs", force: :cascade do |t|
+  create_table "ph", force: :cascade do |t|
     t.float "measure"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
