@@ -1,0 +1,15 @@
+{
+    "background_color": "white",
+    "description": "Fish Tank Monitor",
+    "display": "fullscreen",
+    "icons": [
+      {
+        "src": "coral.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ],
+    "name": "Fish Tank Monitor",
+    "short_name": "Tank Monitor",
+    "start_url": "/"
+  }
